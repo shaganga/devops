@@ -1,0 +1,48 @@
+def myVar = 'initial_value'
+pipeline {
+
+environment {
+repo_name = "demo_repo"
+
+dockerImage = ''
+}
+agent any
+stages {
+stage ('Cloning Git') {
+  steps {
+    git branch: 'release-v1.0', credentialsId: 'git-access', url: 'https://github.com/dstar55/docker-hello-world-spring-boot.git'
+        }
+    }
+
+  stage('Stage: Maven Build'){    
+            steps {
+                //Generate Artifact through maven build       
+            sh "mvn clean install"             
+        }
+    }
+
+  stage('Deploy Image') {
+        steps{
+  //sh 'export gitTag=$(git rev-parse --short HEAD)'
+          script {
+         sh 'git rev-parse --short HEAD > OutGitTag'
+
+          myVar = readFile('OutGitTag').trim()
+
+         echo "gitTag value in deploy stage is ${myVar}"
+       echo "new environment value is ${myVar}"
+
+
+  docker.withRegistry('https://691255316630.dkr.ecr.us-east-1.amazonaws.com','ecr:us-east-1:aws-creds-cc-production', ) {
+          def myImage = docker.build("${repo_name}")
+          myImage.push("${myVar}")
+          echo "gitTag values in deploy image stage is ${myVar}"
+               }
+        }
+      }
+    }
+
+       }
+    }      
+
+
