@@ -33,7 +33,7 @@ stage ('Cloning Git') {
        echo "new environment value is ${myVar}"
 
 
-  docker.withRegistry('https://691255316630.dkr.ecr.us-east-1.amazonaws.com','ecr:us-east-1:aws-creds-cc-production', ) {
+  docker.withRegistry('https://517346398148.dkr.ecr.us-east-1.amazonaws.com','ecr:us-east-1:aws-creds', ) {
           def myImage = docker.build("${repo_name}")
           myImage.push("${myVar}")
           echo "gitTag values in deploy image stage is ${myVar}"
