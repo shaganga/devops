@@ -10,7 +10,7 @@ agent any
 stages {
 stage ('Cloning Git') {
   steps {
-    git branch: 'release-v1.0', credentialsId: 'git-access', url: 'https://github.com/dstar55/docker-hello-world-spring-boot.git'
+  git 'https://github.com/dstar55/docker-hello-world-spring-boot.git'
         }
     }
 
