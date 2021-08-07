@@ -2,7 +2,7 @@ def myVar = 'initial_value'
 pipeline {
 
 environment {
-repo_name = "demo_repo"
+repo_name = "cicd_repo"
 
 dockerImage = ''
 }
