@@ -24,13 +24,13 @@ stage ('Cloning Git') {
             steps {
                 script {
                 // publish the artact into Nexus repository
-                def mavenPom = readMavenPom file: 'server/pom.xml'
+                def mavenPom = readMavenPom file: 'pom.xml'
   
     nexusArtifactUploader artifacts: [
 	[
 		artifactId: 'ribhus',
 		classifier: '',
-		file: "server/target/ribhus-${mavenPom.version}.jar",
+		file: "target/hello-world-0.1.0.jar",
 		type: 'jar'
 		]
 	],
