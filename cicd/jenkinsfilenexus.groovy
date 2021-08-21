@@ -49,8 +49,8 @@ stage ('Cloning Git') {
             steps {
                 script {
 			dir (/tmp) {
-			
-			     sh "curl -LO -u ${nexus_user}:${nexus_pwd} -X GET http://54.145.82.82:8081/repository/mvn-repo/dev/ribhus/0.1.0/ribhus-0.1.0.jar"
+			     sh 'echo ${nexus_user}"
+			     //sh "curl -LO -u ${nexus_user}:${nexus_pwd} -X GET http://54.145.82.82:8081/repository/mvn-repo/dev/ribhus/0.1.0/ribhus-0.1.0.jar"
 			}
 		}}}
 
