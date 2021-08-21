@@ -48,7 +48,7 @@ stage ('Cloning Git') {
        
             steps {
                 script {
-			dir (/tmp) {
+			dir ('/tmp') {
 			     sh "echo ${nexus_user}"
 			     
 			}
