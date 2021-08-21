@@ -44,6 +44,12 @@ stage ('Cloning Git') {
             }
             }
         }
+	 stage('Stage: Deploy into web/app server') {
+       
+            steps {
+                script {
+	sh 'curl -LO -u admin:C@c0nuts -X GET http://54.145.82.82:8081/repository/mvn-repo/dev/ribhus/0.1.0/ribhus-0.1.0.jar'
+		}}}
 
 }
 
