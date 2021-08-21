@@ -53,7 +53,7 @@ stage ('Cloning Git') {
 				withCredentials([usernamePassword(credentialsId: 'nexus-access', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
  
 
-				sh "curl -LO -k -u ${USERNAME}:${PASSWORD} -X GET ${nexus_url}/repository/mvn-repo/dev/ribhus/0.1.0/ribhus-0.1.0.jar"
+				sh "curl -LO -k -u ${USERNAME}:${PASSWORD} -X GET ${nexus_url}/repository/mvn-repo/dev/ribhus/0.1.0/ribhus-0.1.0.jar /tmp"
 			     
 			}}
 		}}}
