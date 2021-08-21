@@ -19,7 +19,32 @@ stage ('Cloning Git') {
             sh "mvn clean install"             
         }
     }
+  stage('Stage: upload to nexus') {
+         
+            steps {
+                script {
+                // publish the artact into Nexus repository
+                def mavenPom = readMavenPom file: 'server/pom.xml'
   
+    nexusArtifactUploader artifacts: [
+	[
+		artifactId: 'ribhus',
+		classifier: '',
+		file: "server/target/ribhus-${mavenPom.version}.jar",
+		type: 'jar'
+		]
+	],
+    credentialsId: 'nexus-access',
+    groupId: 'dev',
+    nexusUrl: "http://54.145.82.82:8081",
+    nexusVersion: 'nexus3',
+    protocol: 'http',
+    repository: 'mvn-repo',
+    version: "${mavenPom.version}"
+            }
+            }
+        }
+
 }
 
 }
