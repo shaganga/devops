@@ -36,7 +36,7 @@ stage ('Cloning Git') {
 	],
     credentialsId: 'nexus-access',
     groupId: 'dev',
-    nexusUrl: "http://54.145.82.82:8081",
+    nexusUrl: "54.145.82.82:8081",
     nexusVersion: 'nexus3',
     protocol: 'http',
     repository: 'mvn-repo',
