@@ -40,7 +40,7 @@ pipeline {
         remote.password = "${remote_pwd}"
         remote.allowAnyHosts = true
 			//sshCommand remote: remote, command: "wget --user=$jfrog_user --password=$jfrog_pwd https://veeshadevops.jfrog.io/artifactory/mvn-repo/$BUILD_NUMBER/hello-world-0.1.0.jar -P /tmp"
-			sshCommand remote: remote, command: 'curl -u "${jfrog_user}":"${jfrog_pwd}" -X GET "https://veeshadevops.jfrog.io/artifactory/mvn-repo/${BUILD_NUMBER}/hello-world-0.1.0.jar" --output /tmp/helloworld.jar'
+			sshCommand remote: remote, command: curl -u ${jfrog_user}:${jfrog_pwd} -X GET https://veeshadevops.jfrog.io/artifactory/mvn-repo/${BUILD_NUMBER}/hello-world-0.1.0.jar --output /tmp/helloworld.jar
 	        }
             }
         }
