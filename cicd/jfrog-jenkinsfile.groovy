@@ -23,7 +23,7 @@ pipeline {
             steps {
                 script {
                 // publish the artact into jfrog repository
-                 sh 'curl -u $jfrog_user:$jfrog_pwd -X PUT "https://veeshadevops.jfrog.io/artifactory/mvn-repo/$BUILD_NUMBER/hello-world-0.1.0.jar" -T target/hello-world-0.1.0.jar"'
+                 sh 'curl -u $jfrog_user:$jfrog_pwd -X PUT "https://veeshadevops.jfrog.io/artifactory/mvn-repo/$BUILD_NUMBER/hello-world-0.1.0.jar" -T target/hello-world-0.1.0.jar'
 
                 }
             }
