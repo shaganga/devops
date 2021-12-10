@@ -6,7 +6,7 @@ pipeline {
 
             steps {
                 // Get some code from a GitLab repository
-        git branch: 'master', curl: 'https://github.com/dstar55/docker-hello-world-spring-boot.git'
+        git branch: 'master', url: 'https://github.com/dstar55/docker-hello-world-spring-boot.git'
             }
         }
     stage('Stage: Maven Build'){
