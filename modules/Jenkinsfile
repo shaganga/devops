@@ -5,10 +5,9 @@ pipeline {
         stage('test') {
             steps {
                 script{
-                    modules.first = load "./modules/first.groovy"
+                    modules.first = load "first.groovy"
                     modules.first.test1()
-                    modules.second = load "./modules/second.groovy"
-                    modules.second.test2()
+   
                 }
             }
         }
