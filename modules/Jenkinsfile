@@ -1,4 +1,4 @@
-def util = load("${env.WORKSPACE}/scripts/build_util.groovy")
+def util;
 pipeline {
     agent any
     stages {
