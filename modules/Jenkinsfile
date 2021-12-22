@@ -5,7 +5,7 @@ pipeline {
         stage('test') {
             steps {
                 script{
-                    modules.first = load "$WORKSPACE\modules\first.groovy"
+                    modules.first = load "../modules/first.groovy"
                     modules.first.test1()
    
                 }
