@@ -5,7 +5,7 @@ pipeline {
         stage('test') {
             steps {
                 script{
-                    def util = load("${env.WORKSPACE}/scripts/build_util.groovy")
+                    util = load("${env.WORKSPACE}/scripts/build_util.groovy")
                     util.test1()
                 }
             }
